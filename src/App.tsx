@@ -1,10 +1,12 @@
-import classNames from "classnames/bind";
-import styles from "./App.module.scss";
-
-const cx = classNames.bind(styles);
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
+import BootUpWindow from "./components/BootUpWindow/BootUpWindow";
 
 function App() {
-  return <div className={cx("container")}>App</div>;
+  return (
+    <ChakraProvider value={defaultSystem}>
+      <BootUpWindow />
+    </ChakraProvider>
+  );
 }
 
 export default App;
