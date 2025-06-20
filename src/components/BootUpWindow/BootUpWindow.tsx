@@ -2,8 +2,9 @@ import styles from "./BootUpWindow.module.scss";
 import classNames from "classnames/bind";
 import LogoImg from "../../assets/images/applelogo.png";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import BootSound from "../../assets/audio/bootsound.mp3";
+import useSystemStore from "store/useSystemStore";
 
 const cx = classNames.bind(styles);
 
@@ -13,12 +14,11 @@ const animations = {
 };
 
 const BootUpWindow = () => {
-  const [isBootupComplete, setBootupComplete] = useState(false);
-  const [soundPlay, setSoundPlay] = useState(false);
+  const { booting, soundPlayed, setBooting, setSoundPlayed } = useSystemStore();
 
   useEffect(() => {
     setTimeout(() => {
-      setBootupComplete(true);
+      setBooting(false);
       playSound();
     }, 3350);
   }, []);
@@ -27,8 +27,8 @@ const BootUpWindow = () => {
   audio.volume = 0.4;
 
   const playSound = () => {
-    if (!soundPlay) {
-      setSoundPlay(true);
+    if (!soundPlayed) {
+      setSoundPlayed(true);
     }
 
     setTimeout(() => {
@@ -44,8 +44,8 @@ const BootUpWindow = () => {
     <div
       id="boot"
       className={cx("boot", {
-        "bootup-window": !isBootupComplete,
-        "bootup-vanished": isBootupComplete,
+        "bootup-window": booting,
+        "bootup-vanished": !booting,
       })}
     >
       <img className={cx("logo")} src={LogoImg} alt="logo" />

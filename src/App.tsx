@@ -1,10 +1,13 @@
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import BootUpWindow from "./components/BootUpWindow/BootUpWindow";
+import Page from "components/Page/Page";
+import NavBar from "components/NavBar/NavBar";
 
 function App() {
   return (
     <ChakraProvider value={defaultSystem}>
-      <BootUpWindow />
+      <Page>
+        <NavBar />
+      </Page>
     </ChakraProvider>
   );
 }
