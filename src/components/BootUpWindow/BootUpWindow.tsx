@@ -18,7 +18,7 @@ const BootUpWindow = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setBooting(true);
+      setBooting(false);
       playSound();
     }, 3350);
   }, []);
@@ -44,8 +44,8 @@ const BootUpWindow = () => {
     <div
       id="boot"
       className={cx("boot", {
-        "bootup-window": !booting,
-        "bootup-vanished": booting,
+        "bootup-window": booting,
+        "bootup-vanished": !booting,
       })}
     >
       <img className={cx("logo")} src={LogoImg} alt="logo" />

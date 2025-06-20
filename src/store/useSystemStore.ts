@@ -20,7 +20,7 @@ interface SystemStore {
 }
 
 const useSystemStore = create<SystemStore>((set) => ({
-  booting: false,
+  booting: true,
   settings: {
     color: "blue",
     wallpaper: {
