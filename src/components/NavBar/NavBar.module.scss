@@ -86,14 +86,10 @@
       fill: white;
       padding: 5px 8px;
       margin-right: 9px;
-      //   cursor: url("../../resources/images/pointing.png"), auto;
+      cursor: url("../../assets/images/pointing.png"), auto;
 
-      .setting-img {
-        fill: white;
-
-        path {
-          pointer-events: none;
-        }
+      path {
+        pointer-events: none;
       }
     }
   }
