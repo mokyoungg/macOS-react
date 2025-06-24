@@ -4,6 +4,7 @@ import LogoImg from "../../assets/images/applelogo.png";
 import useNavBarStore from "store/useNavBarStore";
 import { NAV_SECTIONS } from "store/useNavBarStore";
 import { useEffect } from "react";
+import SettingIcon from "../../assets/images/settings.svg?react";
 
 const cx = classNames.bind(styles);
 
@@ -38,7 +39,7 @@ const NavBar = () => {
       ))}
 
       <div className={cx("right")}>
-        <div className={cx("setting-set")}></div>
+        <SettingIcon className={cx("setting-set")} />
         <h3 className={cx("date")}>{date}</h3>
         <h3>{time}</h3>
       </div>
